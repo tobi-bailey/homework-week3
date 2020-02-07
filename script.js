@@ -27,6 +27,7 @@ numeric = "123456789",
 addSymbols = "!@#$%,^&*()_+",
 password = "";
 
+function generatePassword() {
 var getCharCount = function() {
   while(true) {
     promptLengthText = prompt("How long would you like your password to be? Pick a number between 8 and 128"); 
@@ -46,7 +47,7 @@ var getCharCount = function() {
     }
 
   var askUserIfTheyWantLowercase = function() {
-    var lowercase = confirm("Would you like to include lowercase letter? Click ok for yes or cancel for no.");
+    var lowercase = confirm("Would you like to include lower case letter? Click ok for yes or cancel for no.");
       if (lowercase) {
         allTheOptions += lowerLetters;
         alert("Thank you, lowercase letters will be included.");
@@ -58,7 +59,7 @@ var getCharCount = function() {
     }
 
     var askUserIfTheyWantUppercase = function () {
-      var uppercase = confirm("Would you like to include uppercase letter? Click ok for yes or cancel for no.");
+      var uppercase = confirm("Would you like to include upper case letter? Click ok for yes or cancel for no.");
         if (uppercase) {
           allTheOptions += upperLetters;
           alert("Thank you, uppercase letters will be included");
@@ -94,24 +95,40 @@ var getCharCount = function() {
     }
 
 
-var passwordLength = getCharCount();
+// var passwordLength = getCharCount();
+var promptLength = getCharCount();
 var isLowercase = askUserIfTheyWantLowercase();
 var isUppercase = askUserIfTheyWantUppercase ();
 var isNumbers = askUserIfTheyWantNumbers ();
 var isSymbols = askUserIfTheyWantSymbols ();
+var numberConversion = parseInt(promptLength);
 
-console.log(passwordLength);
+
+console.log(promptLength);
 console.log(isLowercase);
 console.log (isUppercase);
 console.log (isNumbers);
 console.log (isSymbols);
 console.log (allTheOptions);
+console.log (numberConversion);
 
-function generatePassword() {
+  password = "";
+  //Using for loop, first we sets 2 variables i and n
+  //Next we define the condition of the loop which is i needs to be less than promptLength
+  // Then i value increases everytim the loop has been executed
+  for (var i = 0, n = allTheOptions.length; i < promptLength; i++) {
+    //This line below get random letters from the letters string and add to the password string
+    //As long as it meets the loop conditions, so because i < promptlength, it would keep adding more letters at that point
+      password += allTheOptions.charAt(Math.floor(Math.random() * n));
+  }
+  return password;
+}
+//This is to test in your console, it should show the password
+console.log(generatePassword());
 
 
-for (var i = 0, a = allTheOptions.length; i < passwordLength; i++) {
-  password += allTheOptions.charAt(Math.floor(Math.random() * a));
+// for (var i = 0, a = allTheOptions.length; i < passwordLength; i++) {
+//   password += allTheOptions.charAt(Math.floor(Math.random() * a));
   // var j = i % 4;
     // if (isLowercase){
     //   password += lowerLetters.charAt(Math.floor(Math.random() * a));
@@ -126,11 +143,9 @@ for (var i = 0, a = allTheOptions.length; i < passwordLength; i++) {
     //   password += symbols.charAt(Math.floor(Math.random() * d));
     // }
         
-    return password;
-  }
-  }
+
+  
   //This is to test in your console, it should show the password
-  console.log(generatePassword());
 
 
 // new long string that adds strings together, a new array 
