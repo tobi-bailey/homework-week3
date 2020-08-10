@@ -1,6 +1,7 @@
+// Variable to hold the password
 var allTheOptions = "";
 
-// Assignment Code
+//Generate button
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
@@ -16,11 +17,11 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
-// // Array for length of password
-
+//Array for length of password
 var passwordMin = 7;
-var passwordMax = 128;
+var passwordMax = 129;
 
+//Password options
 lowerLetters = "abcdefghijklmnopqrstuvwxyz",
 upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
 numeric = "123456789",
@@ -83,15 +84,15 @@ var getCharCount = function() {
     }
 
     var askUserIfTheyWantSymbols = function () {
-      var addSymbols = confirm("would you like to include symbols? Click ok for yes or cancel for no");
-        if (addSymbols) {
+      var symbols = confirm("would you like to include symbols? Click ok for yes or cancel for no");
+        if (symbols) {
           allTheOptions += addSymbols;
           alert("Thank you, symbols will be included");
         }
         else{
           alert ("ok, symbols will be excluded");
         }
-        return addSymbols;
+        return symbols;
     }
 
 
@@ -104,48 +105,12 @@ var isSymbols = askUserIfTheyWantSymbols ();
 var numberConversion = parseInt(promptLength);
 
 
-console.log(promptLength);
-console.log(isLowercase);
-console.log (isUppercase);
-console.log (isNumbers);
-console.log (isSymbols);
-console.log (allTheOptions);
-console.log (numberConversion);
+
 
   password = "";
-  //Using for loop, first we sets 2 variables i and n
-  //Next we define the condition of the loop which is i needs to be less than promptLength
-  // Then i value increases everytim the loop has been executed
   for (var i = 0, n = allTheOptions.length; i < promptLength; i++) {
-    //This line below get random letters from the letters string and add to the password string
-    //As long as it meets the loop conditions, so because i < promptlength, it would keep adding more letters at that point
       password += allTheOptions.charAt(Math.floor(Math.random() * n));
   }
   return password;
 }
-//This is to test in your console, it should show the password
-console.log(generatePassword());
 
-
-// for (var i = 0, a = allTheOptions.length; i < passwordLength; i++) {
-//   password += allTheOptions.charAt(Math.floor(Math.random() * a));
-  // var j = i % 4;
-    // if (isLowercase){
-    //   password += lowerLetters.charAt(Math.floor(Math.random() * a));
-    // }
-    // else if (isUppercase){
-    //   password += upperLetters.charAt(Math.floor(Math.random() * b));
-    // }
-    // else if (isNumbers){
-    //   password += numeric.charAt(Math.floor(Math.random() * c));
-    // }
-    // else if (isSymbols){
-    //   password += symbols.charAt(Math.floor(Math.random() * d));
-    // }
-        
-
-  
-  //This is to test in your console, it should show the password
-
-
-// new long string that adds strings together, a new array 
