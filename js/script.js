@@ -22,11 +22,11 @@ var passwordMin = 7;
 var passwordMax = 129;
 
 //Password options
-lowerLetters = "abcdefghijklmnopqrstuvwxyz",
-upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-numeric = "123456789",
-addSymbols = "!@#$%,^&*()_+",
-password = "";
+var lowerLetters = "abcdefghijklmnopqrstuvwxyz";
+var upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numeric = "123456789";
+var addSymbols = "!@#$%,^&*()_+"
+var password = "";
 
 function generatePassword() {
 var getCharCount = function() {
